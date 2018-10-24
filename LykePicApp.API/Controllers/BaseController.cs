@@ -8,5 +8,17 @@ namespace LykePicApp.API.Controllers
     {
         //TODO TRY CATCH
         //TODO AUTHENTICATION
+
+        protected IHttpActionResult Run(Func<object> resolve)
+        {
+            try
+            {
+                return Ok(resolve());
+            }
+            catch (Exception exp)
+            {
+                return BadRequest(exp.Message);
+            }
+        }
     }
 }

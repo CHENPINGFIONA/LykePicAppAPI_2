@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBAL.cs" />
+    <Compile Include="EncryptHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserBAL.cs" />
     <Compile Include="UserFollowerBAL.cs" />

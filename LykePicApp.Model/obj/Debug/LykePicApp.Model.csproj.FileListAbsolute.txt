@@ -1,6 +1,5 @@
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.Model\bin\Debug\LykePicApp.Model.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.Model\bin\Debug\LykePicApp.Model.pdb
-D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.Model\obj\Debug\LykePicApp.Model.csprojAssemblyReference.cache
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.Model\obj\Debug\LykePicApp.Model.csproj.CoreCompileInputs.cache
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.Model\obj\Debug\LykePicApp.Model.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.Model\obj\Debug\LykePicApp.Model.pdb

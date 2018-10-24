@@ -11,10 +11,11 @@ GO
 Create Table dbo.[User] 
 (
 	UserId UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() primary key
-   ,[Name] NVARCHAR(128) NOT NULL
+   ,UserName NVARCHAR(128) NOT NULL
    ,Email VARCHAR(128) NOT NULL
-   ,CreatedDate DATETIME NOT NULL
+   ,PasswordHash VARCHAR(512) NOT NULL
    ,ProfilePicture VARCHAR(max)
+   ,CreatedDate DATETIME NOT NULL
    ,Timestamp timestamp NOT NULL
 )
 

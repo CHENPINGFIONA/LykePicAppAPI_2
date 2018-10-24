@@ -19,11 +19,19 @@ namespace LykePicApp.BAL
             return this;
         }
 
-        public User GetUser(Guid userId)
+        public User GetUserById(Guid userId)
         {
             using (var db = new UserContext())
             {
                 return db.Users.FirstOrDefault(user => user.UserId.Equals(userId));
+            }
+        }
+
+        public User GetUserByName(string userName)
+        {
+            using (var db = new UserContext())
+            {
+                return db.Users.FirstOrDefault(user => user.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase));
             }
         }
     }

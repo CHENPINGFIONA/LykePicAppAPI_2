@@ -11,37 +11,27 @@ namespace LykePicApp.API.Controllers
         [HttpPost]
         public IHttpActionResult Post(UserPost userPost)
         {
-            try
+            return Run(() =>
             {
                 using (var bal = new UserPostBAL())
                 {
                     bal.Save(userPost);
 
-                    return Ok<string>("Data Successful Saved");
+                    return "Data Successful Saved";
                 }
-            }
-            catch (Exception exp)
-            {
-                return BadRequest(exp.Message);
-            }
+            });
         }
 
         [HttpGet]
         public IHttpActionResult GetPostList(Guid userId)
         {
-            try
+            return Run(() =>
             {
                 using (var bal = new UserPostBAL())
                 {
-                    var userPosts = bal.GetUserPosts(userId);
-
-                    return Ok<IList<UserPost>>(userPosts);
+                    return bal.GetUserPosts(userId);
                 }
-            }
-            catch (Exception exp)
-            {
-                return BadRequest(exp.Message);
-            }
+            });
         }
     }
 }
