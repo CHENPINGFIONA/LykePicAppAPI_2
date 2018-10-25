@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseContext.cs" />
     <Compile Include="UserPostContext.cs" />
     <Compile Include="UserLikeContext.cs" />
     <Compile Include="UserFollowerContext.cs" />

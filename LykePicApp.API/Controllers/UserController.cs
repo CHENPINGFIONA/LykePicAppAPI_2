@@ -8,12 +8,9 @@ namespace LykePicApp.API.Controllers
     public class UserController : BaseController
     {
         [HttpGet]
-        public IHttpActionResult HelloWord()
+        public IHttpActionResult HelloWorld()
         {
-            return Run(() =>
-            {
-                return "Hello World";
-            });
+            return Ok("Hello World");
         }
 
         [HttpPost]

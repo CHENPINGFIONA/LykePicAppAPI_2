@@ -12,7 +12,7 @@ namespace LykePicApp.Auth
 
         public override PasswordVerificationResult VerifyHashedPassword(string hashedPassword, string providedPassword)
         {
-            if (EncryptHelper.EncryptPassword(providedPassword) == hashedPassword)
+            if (EncryptHelper.EncryptPassword(providedPassword).Equals(hashedPassword))
             {
                 return PasswordVerificationResult.Success;
             }

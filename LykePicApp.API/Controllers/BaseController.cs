@@ -6,7 +6,6 @@ namespace LykePicApp.API.Controllers
 {
     public class BaseController : ApiController
     {
-        //TODO TRY CATCH
         //TODO AUTHENTICATION
 
         protected IHttpActionResult Run(Func<object> resolve)

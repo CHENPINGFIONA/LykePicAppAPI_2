@@ -13,9 +13,9 @@ namespace LykePicApp.Model
 
         public string Email { get; set; }
 
-        public string ProfilePicture { get; set; }
-
         public string PasswordHash { get; set; }
+
+        public string ProfilePicture { get; set; }
 
         public DateTime CreatedDate { get; set; }
 

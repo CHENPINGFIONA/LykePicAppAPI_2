@@ -1,17 +1,13 @@
 ﻿using LykePicApp.Auth;
-using LykePicApp.DAL;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
-using System.Web;
 
-namespace Edulearn.AppApi.Providers
+namespace LykePicApp.API
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
@@ -40,7 +36,6 @@ namespace Edulearn.AppApi.Providers
 
             if (!await userManager.CheckPasswordAsync(user, context.Password))
             {
-                await userManager.AccessFailedAsync(user.Id);
                 context.SetError("invalid_user", "The username or password is incorrect.");
 
                 return;
