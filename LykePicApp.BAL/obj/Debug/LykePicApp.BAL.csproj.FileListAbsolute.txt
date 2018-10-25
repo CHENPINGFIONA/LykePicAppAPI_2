@@ -15,3 +15,4 @@ D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csproj.
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csproj.CopyComplete
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.pdb
+D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.Model.dll.config
