@@ -70,6 +70,7 @@
     <Compile Include="AuthSignInManager.cs" />
     <Compile Include="AuthUserManager.cs" />
     <Compile Include="AuthUserStore.cs" />
+    <Compile Include="IdentityExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

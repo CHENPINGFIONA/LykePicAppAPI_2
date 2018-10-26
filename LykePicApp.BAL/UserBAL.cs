@@ -12,6 +12,12 @@ namespace LykePicApp.BAL
         {
             using (var db = new UserContext())
             {
+                if (user.UserId.Equals(Guid.Empty))
+                {
+                    user.Password = EncryptHelper.EncryptPassword(user.Password);
+                    user.CreatedDate = DateTime.Now;
+                }
+
                 db.Users.AddOrUpdate(user);
                 db.SaveChanges();
             }

@@ -75,6 +75,7 @@ D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\Microsoft.Owin.Security.OAut
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\Microsoft.Web.Infrastructure.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\Newtonsoft.Json.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\Owin.dll
+D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\System.Data.SqlClient.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\System.Diagnostics.DiagnosticSource.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\System.Net.Http.Formatting.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\System.Web.Cors.dll
@@ -95,6 +96,7 @@ D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\LykePicApp.BAL.dll.config
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\LykePicApp.DAL.pdb
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\LykePicApp.DAL.dll.config
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\LykePicApp.Model.pdb
+D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\LykePicApp.Model.dll.config
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\EntityFramework.xml
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\EntityFramework.SqlServer.xml
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\Microsoft.AspNet.Identity.Core.xml
@@ -129,5 +131,3 @@ D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\obj\Debug\LykePicApp.API.csproj.
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\obj\Debug\LykePicApp.API.csproj.CopyComplete
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\obj\Debug\LykePicApp.API.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\obj\Debug\LykePicApp.API.pdb
-D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\System.Data.SqlClient.dll
-D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.API\bin\LykePicApp.Model.dll.config

@@ -8,6 +8,7 @@ D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.Model.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.DAL.pdb
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.DAL.dll.config
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.Model.pdb
+D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.Model.dll.config
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\EntityFramework.xml
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csprojAssemblyReference.cache
@@ -15,4 +16,3 @@ D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csproj.
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csproj.CopyComplete
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.pdb
-D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.Model.dll.config

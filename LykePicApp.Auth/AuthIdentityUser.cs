@@ -18,7 +18,7 @@ namespace LykePicApp.Auth
                 UserName = user.UserName,
                 Email = user.Email,
                 ProfilePicture = user.ProfilePicture,
-                PasswordHash = user.PasswordHash,
+                Password = user.Password,
                 CreatedDate = user.CreatedDate,
                 Timestamp = user.Timestamp
             };
@@ -32,7 +32,7 @@ namespace LykePicApp.Auth
                 UserName = this.UserName,
                 Email = this.Email,
                 ProfilePicture = this.ProfilePicture,
-                PasswordHash = this.PasswordHash,
+                Password = this.Password,
                 CreatedDate = this.CreatedDate,
                 Timestamp = this.Timestamp
             };

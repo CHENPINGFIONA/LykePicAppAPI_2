@@ -9,10 +9,16 @@ namespace LykePicApp.BAL
 {
     public class UserPostBAL : BaseBAL
     {
-        public void Save(UserPost userPost)
+        public void Save(UserPost userPost, Guid userId)
         {
             using (var db = new UserPostContext())
             {
+                if (userPost.PostId.Equals(Guid.Empty))
+                {
+                    userPost.UserId = userId;
+                    userPost.CreatedDate = DateTime.Now;
+                }
+
                 db.UserPosts.AddOrUpdate(userPost);
                 db.SaveChanges();
             }

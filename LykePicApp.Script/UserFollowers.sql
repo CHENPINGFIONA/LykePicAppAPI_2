@@ -10,8 +10,8 @@ GO
 
 Create Table dbo.[UserFollowers] 
 (
-	UserId UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() primary key
-   ,FollowerUserId UNIQUEIDENTIFIER NOT NULL
+   UserId UNIQUEIDENTIFIER  
+   ,FollowerUserId UNIQUEIDENTIFIER  primary key(UserId, FollowerUserId)
    ,CreatedDate DATETIME NOT NULL
    ,Timestamp timestamp NOT NULL
 )

@@ -12,6 +12,7 @@ Create Table dbo.UserLikes
 (
 	LikeId UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() primary key
    ,UserId UNIQUEIDENTIFIER NOT NULL
+   ,PostId UNIQUEIDENTIFIER NOT NULL
    ,CreatedDate DATETIME NOT NULL
    ,Timestamp timestamp NOT NULL
 )

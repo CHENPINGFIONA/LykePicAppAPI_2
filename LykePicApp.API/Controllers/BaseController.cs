@@ -1,12 +1,18 @@
-﻿using System;
+﻿using LykePicApp.Auth;
+using System;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace LykePicApp.API.Controllers
 {
     public class BaseController : ApiController
     {
-        //TODO AUTHENTICATION
+        protected Guid UserId
+        {
+            get
+            {
+                return User.Identity.GetUserId();
+            }
+        }
 
         protected IHttpActionResult Run(Func<object> resolve)
         {

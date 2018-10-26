@@ -1,7 +1,8 @@
 ﻿using System.IO;
+using System.Security.Cryptography;
 using System.Text;
 
-namespace System.Security.Cryptography
+namespace LykePicApp.BAL
 {
     public sealed class EncryptHelper
     {

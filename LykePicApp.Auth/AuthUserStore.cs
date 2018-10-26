@@ -54,12 +54,12 @@ namespace LykePicApp.Auth
 
         public Task<string> GetPasswordHashAsync(AuthIdentityUser user)
         {
-            return Task.FromResult(user.PasswordHash);
+            return Task.FromResult(user.Password);
         }
 
         public Task<bool> HasPasswordAsync(AuthIdentityUser user)
         {
-            return Task.FromResult(!string.IsNullOrEmpty(user.PasswordHash));
+            return Task.FromResult(!string.IsNullOrEmpty(user.Password));
         }
 
         public Task SetPasswordHashAsync(AuthIdentityUser user, string passwordHash)

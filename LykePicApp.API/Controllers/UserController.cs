@@ -27,6 +27,7 @@ namespace LykePicApp.API.Controllers
             });
         }
 
+        [Authorize]
         [HttpGet]
         public IHttpActionResult GetUserInfo(Guid userId)
         {
@@ -41,7 +42,8 @@ namespace LykePicApp.API.Controllers
             });
         }
 
-        [HttpPost]
+        [Authorize]
+        [HttpGet]
         public IHttpActionResult Follow(Guid userId)
         {
             return Run(() =>
@@ -50,7 +52,7 @@ namespace LykePicApp.API.Controllers
                 {
                     var userFollower = new UserFollower()
                     {
-                        UserId = Guid.Empty,//todo add here for useridentity.userid
+                        UserId = UserId,
                         FollowerUserId = userId,
                         CreatedDate = DateTime.Now
                     };
@@ -61,14 +63,15 @@ namespace LykePicApp.API.Controllers
             });
         }
 
-        [HttpPost]
+        [Authorize]
+        [HttpGet]
         public IHttpActionResult UnFollow(Guid userId)
         {
             return Run(() =>
             {
                 using (var bal = new UserFollowerBAL())
                 {
-                    bal.UnFollow(userId);
+                    bal.UnFollow(UserId, userId);
 
                     return "Data Successful Deleted";
                 }

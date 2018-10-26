@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using LykePicApp.BAL;
+using Microsoft.AspNet.Identity;
 using System.Security.Cryptography;
 
 namespace LykePicApp.Auth
