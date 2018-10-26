@@ -35,9 +35,7 @@ namespace LykePicApp.API.Controllers
             {
                 using (var bal = new UserBAL())
                 {
-                    var user = bal.GetUserById(userId);
-
-                    return user;
+                    return bal.GetUserById(userId);
                 }
             });
         }

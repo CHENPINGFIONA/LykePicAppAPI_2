@@ -12,7 +12,7 @@ namespace LykePicApp.UnitTest
         {
             using (var bal = new UserFollowerBAL())
             {
-                var user = bal.UnFollow(new Guid("1E03F4F2-33D9-E811-A447-B0C09099AD52"), new Guid("7FDB0DBA-82A2-4C03-A4A2-14F1F15241BE"));
+                bal.UnFollow(new Guid("1E03F4F2-33D9-E811-A447-B0C09099AD52"), new Guid("7FDB0DBA-82A2-4C03-A4A2-14F1F15241BE"));
             }
         }
     }

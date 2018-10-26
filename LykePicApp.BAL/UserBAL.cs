@@ -8,7 +8,7 @@ namespace LykePicApp.BAL
 {
     public class UserBAL : BaseBAL
     {
-        public UserBAL Save(User user)
+        public void Save(User user)
         {
             using (var db = new UserContext())
             {
@@ -21,8 +21,6 @@ namespace LykePicApp.BAL
                 db.Users.AddOrUpdate(user);
                 db.SaveChanges();
             }
-
-            return this;
         }
 
         public User GetUserById(Guid userId)

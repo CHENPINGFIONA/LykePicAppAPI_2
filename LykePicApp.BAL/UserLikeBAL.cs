@@ -8,7 +8,7 @@ namespace LykePicApp.BAL
 {
     public class UserLikeBAL : BaseBAL
     {
-        public UserLikeBAL Like(UserLike userLike)
+        public void Like(UserLike userLike)
         {
             using (var db = new UserLikeContext())
             {
@@ -21,11 +21,9 @@ namespace LykePicApp.BAL
                 db.UserLikes.AddOrUpdate(userLike);
                 db.SaveChanges();
             }
-
-            return this;
         }
 
-        public UserLikeBAL UnLike(Guid userId, Guid postId)
+        public void UnLike(Guid userId, Guid postId)
         {
             using (var db = new UserLikeContext())
             {
@@ -39,8 +37,6 @@ namespace LykePicApp.BAL
                 db.UserLikes.Remove(temp);
                 db.SaveChanges();
             }
-
-            return this;
         }
 
         private UserLike GetUserLike(Guid userId, Guid postId)

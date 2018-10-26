@@ -12,12 +12,6 @@ namespace LykePicApp.BAL
                 return;
             }
 
-            //if (_container != null)
-            //{
-            //    _container.Dispose();
-            //    _proxy.Dispose();
-            //}
-
             this.disposed = true;
             GC.SuppressFinalize(this);
         }

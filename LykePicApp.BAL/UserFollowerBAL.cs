@@ -8,7 +8,7 @@ namespace LykePicApp.BAL
 {
     public class UserFollowerBAL : BaseBAL
     {
-        public UserFollowerBAL Follow(UserFollower userFollower)
+        public void Follow(UserFollower userFollower)
         {
             using (var db = new UserFollowerContext())
             {
@@ -22,11 +22,9 @@ namespace LykePicApp.BAL
                 db.UserFollowers.AddOrUpdate(userFollower);
                 db.SaveChanges();
             }
-
-            return this;
         }
 
-        public UserFollowerBAL UnFollow(Guid userId, Guid followerUserId)
+        public void UnFollow(Guid userId, Guid followerUserId)
         {
             using (var db = new UserFollowerContext())
             {
@@ -40,8 +38,6 @@ namespace LykePicApp.BAL
                 db.UserFollowers.Remove(temp);
                 db.SaveChanges();
             }
-
-            return this;
         }
 
         private UserFollower GetUserFollower(Guid userId, Guid followerUserId)
