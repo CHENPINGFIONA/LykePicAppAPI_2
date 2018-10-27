@@ -13,6 +13,14 @@ namespace LykePicApp.API.Controllers
             return Ok("Hello World");
         }
 
+        [HttpGet]
+        public IHttpActionResult GetPublicKey() {
+            return Ok(@"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCeQAqPrGgrjcXo1YPlh5fMBFv4
+9MXUc4GQc6lcbRdIqPUsui7UvkrQh/exlQTK/5NZCmXhXotF4idFCnmzWXt5Ynmq
+soO/5jXLCf6PuB/xY3gusWfdrQe50aJ2oL5bYUv3DzaalVrxyNEBM9eCwXOfsCKT
+K22qUQHSXKPr8WAGLwIDAQAB");
+        }
+
         [HttpPost]
         public IHttpActionResult CreateUser(User user)
         {
