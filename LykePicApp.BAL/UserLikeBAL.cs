@@ -1,5 +1,4 @@
 ﻿using LykePicApp.DAL;
-using LykePicApp.Model;
 using System;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -8,24 +7,31 @@ namespace LykePicApp.BAL
 {
     public class UserLikeBAL : BaseBAL
     {
-        public void Like(UserLike userLike)
+        public void Like(Guid userId, Guid postId)
         {
-            using (var db = new UserLikeContext())
+            using (var db = new DBContext())
             {
-                var temp = GetUserLike(userLike.UserId, userLike.PostId);
+                var temp = GetUserLike(userId, postId);
                 if (temp != null)
                 {
                     throw new Exception("You have already liked this post.");
                 }
 
-                db.UserLikes.AddOrUpdate(userLike);
+                temp = new UserLike()
+                {
+                    UserId = userId,
+                    PostId = postId,
+                    CreatedDate = DateTime.Now
+                };
+
+                db.UserLikes.AddOrUpdate(temp);
                 db.SaveChanges();
             }
         }
 
-        public void UnLike(Guid userId, Guid postId)
+        public void DisLike(Guid userId, Guid postId)
         {
-            using (var db = new UserLikeContext())
+            using (var db = new DBContext())
             {
                 var temp = GetUserLike(userId, postId);
                 if (temp == null)
@@ -41,7 +47,7 @@ namespace LykePicApp.BAL
 
         private UserLike GetUserLike(Guid userId, Guid postId)
         {
-            using (var db = new UserLikeContext())
+            using (var db = new DBContext())
             {
                 return db.UserLikes.FirstOrDefault(ul => ul.PostId.Equals(postId) && ul.UserId.Equals(userId));
             }

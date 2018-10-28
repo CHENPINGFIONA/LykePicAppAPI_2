@@ -34,7 +34,7 @@ namespace LykePicApp.API
                 return;
             }
 
-            if (!await userManager.CheckPasswordAsync(user, context.Password))
+            if (!await userManager.CheckPasswordAsync(user, EncryptHelper.EncryptPassword(context.Password, user.UserName)))
             {
                 context.SetError("invalid_user", "The username or password is incorrect.");
 
@@ -62,7 +62,6 @@ namespace LykePicApp.API
 
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-            // Resource owner password credentials does not provide a client ID.
             if (context.ClientId == null)
             {
                 context.Validated();

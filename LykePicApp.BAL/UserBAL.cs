@@ -1,6 +1,6 @@
 ﻿using LykePicApp.DAL;
-using LykePicApp.Model;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 
@@ -10,14 +10,8 @@ namespace LykePicApp.BAL
     {
         public void Save(User user)
         {
-            using (var db = new UserContext())
+            using (var db = new DBContext())
             {
-                if (user.UserId.Equals(Guid.Empty))
-                {
-                    user.Password = EncryptHelper.EncryptPassword(user.Password);
-                    user.CreatedDate = DateTime.Now;
-                }
-
                 db.Users.AddOrUpdate(user);
                 db.SaveChanges();
             }
@@ -25,7 +19,7 @@ namespace LykePicApp.BAL
 
         public User GetUserById(Guid userId)
         {
-            using (var db = new UserContext())
+            using (var db = new DBContext())
             {
                 return db.Users.FirstOrDefault(user => user.UserId.Equals(userId));
             }
@@ -33,9 +27,17 @@ namespace LykePicApp.BAL
 
         public User GetUserByName(string userName)
         {
-            using (var db = new UserContext())
+            using (var db = new DBContext())
             {
                 return db.Users.FirstOrDefault(user => user.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase));
+            }
+        }
+
+        public IList<User> SearchUsersByText(string text)
+        {
+            using (var db = new DBContext())
+            {
+                return db.Users.Where(user => user.UserName.IndexOf(text, StringComparison.InvariantCultureIgnoreCase) >= 0).ToList();
             }
         }
     }

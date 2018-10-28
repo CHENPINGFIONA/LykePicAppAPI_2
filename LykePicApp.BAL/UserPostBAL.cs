@@ -1,5 +1,4 @@
 ﻿using LykePicApp.DAL;
-using LykePicApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,41 +8,41 @@ namespace LykePicApp.BAL
 {
     public class UserPostBAL : BaseBAL
     {
-        public void Save(UserPost userPost, Guid userId)
+        public void Save(UserPost post)
         {
-            using (var db = new UserPostContext())
+            using (var db = new DBContext())
             {
-                if (userPost.PostId.Equals(Guid.Empty))
-                {
-                    userPost.UserId = userId;
-                    userPost.CreatedDate = DateTime.Now;
-                }
-
-                db.UserPosts.AddOrUpdate(userPost);
+                db.UserPosts.AddOrUpdate(post);
                 db.SaveChanges();
             }
         }
 
         public void Delete(Guid postId)
         {
-            using (var db = new UserPostContext())
+            using (var db = new DBContext())
             {
-                var userPost = GetUserPost(postId);
-                if (userPost == null)
+                var post = GetUserPost(postId);
+                if (post == null)
                 {
                     return;
                 }
 
-                db.UserPosts.Remove(userPost);
+                db.UserPosts.Remove(post);
                 db.SaveChanges();
             }
         }
 
         public IList<UserPost> GetUserPosts(Guid userId)
         {
-            using (var db = new UserPostContext())
+            using (var db = new DBContext())
             {
+                var followerList = db.UserFollowers.Where(uf => uf.UserId.Equals(userId));
+
                 var query = from post in db.UserPosts
+                            join follower in followerList on post.UserId equals follower.FollowerUserId into temp
+                            from p in temp.DefaultIfEmpty()
+                            where p.UserId == userId
+                            || p.FollowerUserId == userId
                             orderby post.CreatedDate descending
                             select post;
 
@@ -51,11 +50,11 @@ namespace LykePicApp.BAL
             }
         }
 
-        private UserPost GetUserPost(Guid postId)
+        public UserPost GetUserPost(Guid postId)
         {
-            using (var db = new UserPostContext())
+            using (var db = new DBContext())
             {
-                return db.UserPosts.FirstOrDefault(userPost => userPost.PostId.Equals(postId));
+                return db.UserPosts.FirstOrDefault(post => post.PostId.Equals(postId));
             }
         }
     }

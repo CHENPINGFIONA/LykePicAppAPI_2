@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7AF99656-66EF-4709-8263-ECC0B191F8A9}</ProjectGuid>
+    <ProjectGuid>{63B1B653-4970-423D-AA39-FFED4B9258D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LykePicApp.DAL</RootNamespace>
@@ -48,22 +48,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseContext.cs" />
-    <Compile Include="UserPostContext.cs" />
-    <Compile Include="UserLikeContext.cs" />
-    <Compile Include="UserFollowerContext.cs" />
-    <Compile Include="UserContext.cs" />
+    <Compile Include="DBContext.cs" />
+    <Compile Include="Migrations\201810281604161_InitialCreate.cs" />
+    <Compile Include="Migrations\201810281604161_InitialCreate.Designer.cs">
+      <DependentUpon>201810281604161_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LykePicApp.Model\LykePicApp.Model.csproj">
-      <Project>{CB4E1415-EF6A-4C84-A36B-ED06A1F1B3FF}</Project>
-      <Name>LykePicApp.Model</Name>
-    </ProjectReference>
+    <Compile Include="User.cs" />
+    <Compile Include="UserFollower.cs" />
+    <Compile Include="UserLike.cs" />
+    <Compile Include="UserPost.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810281604161_InitialCreate.resx">
+      <DependentUpon>201810281604161_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

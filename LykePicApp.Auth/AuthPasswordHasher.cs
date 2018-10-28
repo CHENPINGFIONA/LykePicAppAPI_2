@@ -6,14 +6,9 @@ namespace LykePicApp.Auth
 {
     public sealed class AuthPasswordHasher : PasswordHasher
     {
-        public override string HashPassword(string password)
+        public override PasswordVerificationResult VerifyHashedPassword(string hashedPassword, string providedHashedPassword)
         {
-            return EncryptHelper.EncryptPassword(password);
-        }
-
-        public override PasswordVerificationResult VerifyHashedPassword(string hashedPassword, string providedPassword)
-        {
-            if (EncryptHelper.EncryptPassword(providedPassword).Equals(hashedPassword))
+            if (providedHashedPassword.Equals(hashedPassword))
             {
                 return PasswordVerificationResult.Success;
             }

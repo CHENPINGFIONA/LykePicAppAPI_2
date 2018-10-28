@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D7F8773F-9624-4982-84A4-FEFFFD17DBF7}</ProjectGuid>
+    <ProjectGuid>{5F18B375-FA14-4DDD-B0A2-69C1F4FEA778}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LykePicApp.Auth</RootNamespace>
@@ -74,17 +74,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\LykePicApp.BAL\LykePicApp.BAL.csproj">
-      <Project>{F0F0030A-A778-4BAC-A6E9-3C7F8FB65B87}</Project>
+      <Project>{35284bcb-d1cc-4a00-afd8-506f79b47e90}</Project>
       <Name>LykePicApp.BAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LykePicApp.Model\LykePicApp.Model.csproj">
-      <Project>{CB4E1415-EF6A-4C84-A36B-ED06A1F1B3FF}</Project>
-      <Name>LykePicApp.Model</Name>
+    <ProjectReference Include="..\LykePicApp.DAL\LykePicApp.DAL.csproj">
+      <Project>{63b1b653-4970-423d-aa39-ffed4b9258d4}</Project>
+      <Name>LykePicApp.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

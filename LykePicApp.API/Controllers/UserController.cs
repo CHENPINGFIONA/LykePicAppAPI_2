@@ -1,9 +1,9 @@
 ﻿using LykePicApp.BAL;
-using LykePicApp.Model;
+using LykePicApp.DAL;
 using System;
 using System.Web.Http;
 
-namespace LykePicApp.API.Controllers
+namespace LykePicApp.API
 {
     public class UserController : BaseController
     {
@@ -13,14 +13,6 @@ namespace LykePicApp.API.Controllers
             return Ok("Hello World");
         }
 
-        [HttpGet]
-        public IHttpActionResult GetPublicKey() {
-            return Ok(@"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCeQAqPrGgrjcXo1YPlh5fMBFv4
-9MXUc4GQc6lcbRdIqPUsui7UvkrQh/exlQTK/5NZCmXhXotF4idFCnmzWXt5Ynmq
-soO/5jXLCf6PuB/xY3gusWfdrQe50aJ2oL5bYUv3DzaalVrxyNEBM9eCwXOfsCKT
-K22qUQHSXKPr8WAGLwIDAQAB");
-        }
-
         [HttpPost]
         public IHttpActionResult CreateUser(User user)
         {
@@ -28,6 +20,9 @@ K22qUQHSXKPr8WAGLwIDAQAB");
             {
                 using (var bal = new UserBAL())
                 {
+                    user.Password = EncryptHelper.EncryptPassword(user.Password, user.UserName);
+                    user.CreatedDate = DateTime.Now;
+
                     bal.Save(user);
 
                     return "Data Successful Saved";
@@ -37,13 +32,25 @@ K22qUQHSXKPr8WAGLwIDAQAB");
 
         [Authorize]
         [HttpGet]
-        public IHttpActionResult GetUserInfo(Guid userId)
+        public IHttpActionResult GetUser(Guid userId)
         {
             return Run(() =>
             {
                 using (var bal = new UserBAL())
                 {
                     return bal.GetUserById(userId);
+                }
+            });
+        }
+
+        [Authorize]
+        public IHttpActionResult SearchUsersByText(string text)
+        {
+            return Run(() =>
+            {
+                using (var bal = new UserBAL())
+                {
+                    return bal.SearchUsersByText(text);
                 }
             });
         }
@@ -56,14 +63,7 @@ K22qUQHSXKPr8WAGLwIDAQAB");
             {
                 using (var bal = new UserFollowerBAL())
                 {
-                    var userFollower = new UserFollower()
-                    {
-                        UserId = UserId,
-                        FollowerUserId = userId,
-                        CreatedDate = DateTime.Now
-                    };
-
-                    bal.Follow(userFollower);
+                    bal.Follow(UserId, userId);
                     return "Data Successful Saved";
                 }
             });
@@ -80,6 +80,19 @@ K22qUQHSXKPr8WAGLwIDAQAB");
                     bal.UnFollow(UserId, userId);
 
                     return "Data Successful Deleted";
+                }
+            });
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IHttpActionResult GetFollowList(Guid userId)
+        {
+            return Run(() =>
+            {
+                using (var bal = new UserFollowerBAL())
+                {
+                    return bal.GetFollowUserList(userId);
                 }
             });
         }

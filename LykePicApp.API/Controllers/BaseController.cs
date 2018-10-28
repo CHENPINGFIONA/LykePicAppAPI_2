@@ -2,7 +2,7 @@
 using System;
 using System.Web.Http;
 
-namespace LykePicApp.API.Controllers
+namespace LykePicApp.API
 {
     public class BaseController : ApiController
     {

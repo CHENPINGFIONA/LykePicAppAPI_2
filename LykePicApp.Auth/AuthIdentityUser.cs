@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using LykePicApp.Model;
+using LykePicApp.DAL;
 using Microsoft.AspNet.Identity;
 
 namespace LykePicApp.Auth
@@ -19,8 +19,7 @@ namespace LykePicApp.Auth
                 Email = user.Email,
                 ProfilePicture = user.ProfilePicture,
                 Password = user.Password,
-                CreatedDate = user.CreatedDate,
-                Timestamp = user.Timestamp
+                CreatedDate = user.CreatedDate
             };
         }
 
@@ -33,8 +32,7 @@ namespace LykePicApp.Auth
                 Email = this.Email,
                 ProfilePicture = this.ProfilePicture,
                 Password = this.Password,
-                CreatedDate = this.CreatedDate,
-                Timestamp = this.Timestamp
+                CreatedDate = this.CreatedDate
             };
         }
 

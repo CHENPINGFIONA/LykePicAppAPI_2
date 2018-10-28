@@ -1,22 +1,23 @@
 ﻿using LykePicApp.BAL;
-using LykePicApp.Model;
+using LykePicApp.DAL;
 using System;
-using System.Collections.Generic;
 using System.Web.Http;
 
-namespace LykePicApp.API.Controllers
+namespace LykePicApp.API
 {
     [Authorize]
     public class PostController : BaseController
     {
         [HttpPost]
-        public IHttpActionResult Post(UserPost userPost)
+        public IHttpActionResult UploadPost(UserPost post)
         {
             return Run(() =>
             {
                 using (var bal = new UserPostBAL())
                 {
-                    bal.Save(userPost, UserId);
+                    post.UserId = UserId;
+                    post.CreatedDate = DateTime.Now;
+                    bal.Save(post);
 
                     return "Data Successful Saved";
                 }
@@ -36,33 +37,39 @@ namespace LykePicApp.API.Controllers
         }
 
         [HttpGet]
+        public IHttpActionResult GetPost(Guid postId)
+        {
+            return Run(() =>
+            {
+                using (var bal = new UserPostBAL())
+                {
+                    return bal.GetUserPost(postId);
+                }
+            });
+        }
+
+        [HttpGet]
         public IHttpActionResult LikePost(Guid postId)
         {
             return Run(() =>
             {
                 using (var bal = new UserLikeBAL())
                 {
-                    var userLike = new UserLike()
-                    {
-                        UserId = UserId,
-                        PostId = postId,
-                        CreatedDate = DateTime.Now
-                    };
+                    bal.Like(UserId, postId);
 
-                    bal.Like(userLike);
                     return "Data Successful Saved";
                 }
             });
         }
 
         [HttpGet]
-        public IHttpActionResult UnLike(Guid postId)
+        public IHttpActionResult DisLikePost(Guid postId)
         {
             return Run(() =>
             {
                 using (var bal = new UserLikeBAL())
                 {
-                    bal.UnLike(UserId, postId);
+                    bal.DisLike(UserId, postId);
 
                     return "Data Successful Deleted";
                 }
