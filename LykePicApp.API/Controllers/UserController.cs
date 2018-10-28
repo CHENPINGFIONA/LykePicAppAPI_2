@@ -44,6 +44,7 @@ namespace LykePicApp.API
         }
 
         [Authorize]
+        [HttpGet]
         public IHttpActionResult SearchUsersByText(string text)
         {
             return Run(() =>

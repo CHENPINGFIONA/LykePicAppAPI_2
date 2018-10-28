@@ -37,7 +37,7 @@ namespace LykePicApp.BAL
         {
             using (var db = new DBContext())
             {
-                return db.Users.Where(user => user.UserName.IndexOf(text, StringComparison.InvariantCultureIgnoreCase) >= 0).ToList();
+                return db.Users.Where(u => u.UserName.Contains(text)).ToList();
             }
         }
     }

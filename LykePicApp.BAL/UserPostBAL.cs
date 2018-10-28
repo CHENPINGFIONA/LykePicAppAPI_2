@@ -41,7 +41,7 @@ namespace LykePicApp.BAL
                 var query = from post in db.UserPosts
                             join follower in followerList on post.UserId equals follower.FollowerUserId into temp
                             from p in temp.DefaultIfEmpty()
-                            where p.UserId == userId
+                            where post.UserId == userId
                             || p.FollowerUserId == userId
                             orderby post.CreatedDate descending
                             select post;
