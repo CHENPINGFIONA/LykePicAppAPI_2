@@ -87,7 +87,7 @@ namespace LykePicApp.API
 
         [Authorize]
         [HttpGet]
-        public IHttpActionResult GetFollowList(Guid userId)
+        public IHttpActionResult GetFollowerList(Guid userId)
         {
             return Run(() =>
             {
