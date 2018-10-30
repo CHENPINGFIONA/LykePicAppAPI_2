@@ -34,7 +34,7 @@ namespace LykePicApp.Auth
 
             // Configure user lockout defaults
             manager.UserLockoutEnabledByDefault = true;
-            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(30);
             manager.MaxFailedAccessAttemptsBeforeLockout = 5;
 
             return manager;

@@ -13,5 +13,7 @@ namespace LykePicApp.DAL
         public DbSet<UserPost> UserPosts { get; set; }
 
         public DbSet<UserLike> UserLikes { get; set; }
+
+        public DbSet<UserLogin> UserLogins { get; set; }
     }
 }

@@ -12,6 +12,11 @@ namespace LykePicApp.BAL
         {
             using (var db = new DBContext())
             {
+                if (user.UserId == Guid.Empty)
+                {
+                    ValidateUserExist(user.UserName);
+                }
+
                 db.Users.AddOrUpdate(user);
                 db.SaveChanges();
             }
@@ -38,6 +43,15 @@ namespace LykePicApp.BAL
             using (var db = new DBContext())
             {
                 return db.Users.Where(u => u.UserName.Contains(text)).ToList();
+            }
+        }
+
+        private void ValidateUserExist(string userName)
+        {
+            var temp = GetUserByName(userName);
+            if (temp != null)
+            {
+                throw new Exception("User Name already exist in the system.");
             }
         }
     }

@@ -28,7 +28,7 @@ namespace LykePicApp.API
         public static string EncryptPassword(string plainText, string plainSalt)
         {
             var cypherSalt = EncryptBySha256(plainSalt);
-            return EncryptBySha256(string.Format(plainText, cypherSalt));
+            return EncryptBySha256(string.Format("{0}{1}", plainText, cypherSalt));
         }
     }
 }

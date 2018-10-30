@@ -1,4 +1,6 @@
 ﻿using LykePicApp.Auth;
+using LykePicApp.BAL;
+using LykePicApp.DAL;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
@@ -31,15 +33,19 @@ namespace LykePicApp.API
             if (user == null)
             {
                 context.SetError("invalid_user", "The username or password is incorrect.");
+                SaveUserLogin(context.UserName, context.Request.LocalIpAddress, false);
                 return;
             }
 
             if (!await userManager.CheckPasswordAsync(user, EncryptHelper.EncryptPassword(context.Password, user.UserName)))
             {
                 context.SetError("invalid_user", "The username or password is incorrect.");
+                SaveUserLogin(context.UserName, context.Request.LocalIpAddress, false);
 
                 return;
             }
+
+            SaveUserLogin(context.UserName, context.Request.LocalIpAddress, true);
 
             await userManager.UpdateAsync(user);
 
@@ -95,6 +101,22 @@ namespace LykePicApp.API
             };
 
             return new AuthenticationProperties(data);
+        }
+
+        private void SaveUserLogin(string userName, string ipAddress, bool isSuccessful)
+        {
+            using (var bal = new UserLoginBAL())
+            {
+                var login = new UserLogin()
+                {
+                    UserName = userName,
+                    IPV4Address = ipAddress,
+                    IsSuccessful = isSuccessful,
+                    CreatedDate = DateTime.Now
+                };
+
+                bal.Save(login);
+            }
         }
     }
 }

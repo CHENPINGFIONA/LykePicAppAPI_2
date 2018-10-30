@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="BaseBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserLoginBAL.cs" />
     <Compile Include="UserBAL.cs" />
     <Compile Include="UserFollowerBAL.cs" />
     <Compile Include="UserLikeBAL.cs" />

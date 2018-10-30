@@ -57,8 +57,13 @@
     <Compile Include="Migrations\201810281709418_UserPostAddDescription.Designer.cs">
       <DependentUpon>201810281709418_UserPostAddDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810301433459_AddUserLogins.cs" />
+    <Compile Include="Migrations\201810301433459_AddUserLogins.Designer.cs">
+      <DependentUpon>201810301433459_AddUserLogins.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserLogin.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserFollower.cs" />
     <Compile Include="UserLike.cs" />
@@ -74,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810281709418_UserPostAddDescription.resx">
       <DependentUpon>201810281709418_UserPostAddDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810301433459_AddUserLogins.resx">
+      <DependentUpon>201810301433459_AddUserLogins.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
