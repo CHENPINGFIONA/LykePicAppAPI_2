@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Liphsoft.Crypto.Argon2;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -25,10 +26,17 @@ namespace LykePicApp.API
             }
         }
 
+        public static string EncryptByArgon2(string plainText)
+        {
+            // default is 65536 (in KiB)
+            var hasher = new PasswordHasher();
+            return hasher.Hash(plainText);
+        }
+
         public static string EncryptPassword(string plainText, string plainSalt)
         {
-            var cypherSalt = EncryptBySha256(plainSalt);
-            return EncryptBySha256(string.Format("{0}{1}", plainText, cypherSalt));
+            var cypherSalt = EncryptByArgon2(plainSalt);
+            return EncryptByArgon2(string.Format("{0}{1}", plainText, cypherSalt));
         }
     }
 }

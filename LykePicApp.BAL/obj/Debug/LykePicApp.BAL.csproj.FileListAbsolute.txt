@@ -13,3 +13,17 @@ D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csproj.
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csproj.CopyComplete
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.dll
 D:\NUS\WorkSpace\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.pdb
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.BAL.dll.config
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.BAL.dll
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.BAL.pdb
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\EntityFramework.dll
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.DAL.dll
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.DAL.pdb
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\LykePicApp.DAL.dll.config
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\EntityFramework.xml
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csprojResolveAssemblyReference.cache
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.csproj.CoreCompileInputs.cache
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.dll
+D:\Practices\LykePicAppAPI_2\LykePicApp.BAL\obj\Debug\LykePicApp.BAL.pdb
