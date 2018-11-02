@@ -37,7 +37,7 @@ namespace LykePicApp.API
                 return;
             }
 
-            if (!await userManager.CheckPasswordAsync(user, EncryptHelper.EncryptPassword(context.Password, user.UserName)))
+            if (!await userManager.CheckPasswordAsync(user, PasswordHelper.EncryptPassword(context.Password, user.UserName)))
             {
                 context.SetError("invalid_user", "The username or password is incorrect.");
                 SaveUserLogin(context.UserName, context.Request.LocalIpAddress, false);

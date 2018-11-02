@@ -18,7 +18,7 @@ namespace LykePicApp.DAL.Migrations
             {
                 UserName = "t3pt",
                 Email = "t3pt@mail.com",
-                Password = "92efa8383265cd69e766caa990d37d1d5870a8477583ba44a35f30c42f133bc2",
+                Password = "$argon2i$v=19$m=32768,t=10,p=5$dDNwdDEyMzQ1Njc4$pcUgrx3qZbdgnSs7T1y0hN/AB1E=",
                 CreatedDate = DateTime.Now
             });
 

@@ -20,7 +20,7 @@ namespace LykePicApp.API
             {
                 using (var bal = new UserBAL())
                 {
-                    user.Password = EncryptHelper.EncryptPassword(user.Password, user.UserName);
+                    user.Password = PasswordHelper.EncryptPassword(user.Password, user.UserName);
                     user.CreatedDate = DateTime.Now;
 
                     bal.Save(user);
