@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity.Migrations;
+using System.Data.Entity;
 
 namespace LykePicApp.BAL
 {
@@ -32,30 +33,68 @@ namespace LykePicApp.BAL
             }
         }
 
-        public IList<UserPost> GetUserPosts(Guid userId)
+        public IList<UserPostBM> GetUserPosts(Guid userId)
         {
+            var userPosts = new List<UserPostBM>();
             using (var db = new DBContext())
             {
+                var likes = db.UserLikes.ToList();
                 var followerList = db.UserFollowers.Where(uf => uf.UserId.Equals(userId));
+                var followerPostList = from post in db.UserPosts
+                                       join follower in followerList on post.UserId equals follower.FollowerUserId
+                                       select post;
+                userPosts.AddRange(GetUserPost(followerPostList, likes));
 
-                var query = from post in db.UserPosts
-                            join follower in followerList on post.UserId equals follower.FollowerUserId into temp
-                            from p in temp.DefaultIfEmpty()
-                            where post.UserId == userId
-                            || p.FollowerUserId == userId
-                            orderby post.CreatedDate descending
-                            select post;
+                var userPostList = db.UserPosts.Where(post => post.UserId == userId);
+                userPosts.AddRange(GetUserPost(userPostList, likes));
 
-                return query.ToList();
+                return userPosts;
             }
         }
 
-        public UserPost GetUserPost(Guid postId)
+        public UserPostBM GetUserPost(Guid postId)
         {
             using (var db = new DBContext())
             {
-                return db.UserPosts.FirstOrDefault(post => post.PostId.Equals(postId));
+                var post = db.UserPosts.FirstOrDefault(p => p.PostId.Equals(postId));
+                var postBM = UserPostBM.From(post);
+
+                postBM.LikeCount = db.UserLikes.Count(ul => ul.PostId.Equals(post.PostId));
+
+                return postBM;
             }
+        }
+
+        private IList<UserPostBM> GetUserPost(IEnumerable<UserPost> posts, IEnumerable<UserLike> likes)
+        {
+            var userPosts = new List<UserPostBM>();
+            foreach (var post in posts)
+            {
+                var postBM = UserPostBM.From(post);
+                postBM.LikeCount = likes.Count(like => like.PostId.Equals(post.PostId));
+                userPosts.Add(postBM);
+            }
+
+            return userPosts;
         }
     }
+
+    public sealed class UserPostBM : UserPost
+    {
+        public int LikeCount { get; set; }
+
+        public static UserPostBM From(UserPost post)
+        {
+            return new UserPostBM()
+            {
+                PostId = post.PostId,
+                UserId = post.UserId,
+                Picture = post.Picture,
+                Description = post.Description,
+                CreatedDate = post.CreatedDate
+            };
+
+        }
+    }
+
 }

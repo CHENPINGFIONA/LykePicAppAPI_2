@@ -51,7 +51,7 @@ namespace LykePicApp.API
             {
                 using (var bal = new UserBAL())
                 {
-                    return bal.SearchUsersByText(text);
+                    return bal.SearchUsersByText(text, UserId);
                 }
             });
         }

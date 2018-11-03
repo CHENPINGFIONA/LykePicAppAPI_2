@@ -38,11 +38,12 @@ namespace LykePicApp.BAL
             }
         }
 
-        public IList<User> SearchUsersByText(string text)
+        public IList<User> SearchUsersByText(string text, Guid userId)
         {
             using (var db = new DBContext())
             {
-                return db.Users.Where(u => u.UserName.Contains(text)).ToList();
+                var followerUserIds = db.UserFollowers.Where(uf => uf.UserId.Equals(userId)).Select(uf => uf.FollowerUserId);
+                return db.Users.Where(u => !followerUserIds.Contains(u.UserId) && !u.UserId.Equals(userId) && u.UserName.Contains(text)).ToList();
             }
         }
 
